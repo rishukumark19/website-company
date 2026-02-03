@@ -15,6 +15,12 @@ img[src="assets/center-logo.png"] {
   height: 50px;
   object-fit: contain;
 }
+.nav-header-content img {
+  width: 480px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 img[src="assets/our-story.png"] {
   width: 150px;
   object-fit: contain;
@@ -31,8 +37,8 @@ img[src="assets/our-story.png"] {
   max-width: 850px;
   display: flex;
   flex-direction: column;
-  padding: 40px 64px;
-  gap: 48px;
+  padding: 60px 80px;
+  gap: 60px;
 }
 .nav-header-content {
   display: flex;
@@ -45,21 +51,58 @@ img[src="assets/our-story.png"] {
 }
 .nav-overlay {
   width: 100%;
+  display: none;
+  border-top: 1px solid #e6e6e6;
+  background: #fff;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+}
+
+.nav-overlay.active {
   display: flex;
   justify-content: center;
-  /* hide overlay  */
-  /* display: none; */
 }
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 4px 10px;
-  gap: 70px;
+  padding: 8px 16px;
+  gap: 20px;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.desktop-links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+.desktop-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+.desktop-links a:hover {
+  opacity: 0.6;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  display: none; /* Hidden on desktop */
+  align-items: center;
+  justify-content: center;
 }
 .nav-shell {
-  width: fit-content;
+  width: 90%;
+  max-width: 1200px;
   height: fit-content;
   border: 1px solid #e6e6e6;
   border-radius: 12px;
@@ -68,9 +111,24 @@ img[src="assets/our-story.png"] {
 }
 .nav-links {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .nav-links li a {
   text-decoration: none;
+  color: #000;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  display: inline-block;
+}
+.nav-links li a:hover {
+  transform: translateX(10px);
+  color: #6e6e6e;
 }
 .brand {
   font-family: "Poppins", sans-serif;
@@ -145,8 +203,8 @@ img[src="assets/our-story.png"] {
   border-radius: 12px;
 
   padding: 100px 24px;
-  margin-top: 100px;
-  margin-bottom: 200px;
+  margin: 100px auto 200px auto;
+  max-width: 1200px;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   gap: 20px;
@@ -231,8 +289,8 @@ img[src="assets/our-story.png"] {
 
 /* FINAL CTA */
 .final-cta {
-  width: 99%;
-  max-width: 1400px;
+  width: 90%;
+  max-width: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,8 +300,7 @@ img[src="assets/our-story.png"] {
   font-weight: 500;
   font-size: 40px;
   padding: 5px 20px;
-  margin-top: 100px;
-  margin-bottom: 200px;
+  margin: 100px auto 200px auto;
 }
 
 /* Careers Page */
@@ -308,11 +365,13 @@ img[src="assets/our-story.png"] {
 /* product page */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
   width: 100%;
-  max-width: 1000px;
+  height: 100%;
+  padding: 20px;
   margin: 40px auto;
+  max-width: 1200px;
 }
 .product-card {
   text-align: center;
@@ -381,9 +440,10 @@ img[src="assets/our-story.png"] {
 
 /* BETA BANNER SECTION */
 .beta-banner {
-  width: 100%;
-  width: 100px;
-  height: 450px;
+  width: 95%;
+  max-width: 1400px;
+  height: auto;
+  min-height: 250px;
   background-color: #0a0a0a;
   border-radius: 20px;
   padding: 40px 60px;
@@ -441,6 +501,20 @@ img[src="assets/our-story.png"] {
 
 /* Responsive adjustment */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Show hamburger only on mobile/tablet */
+  }
+  .desktop-links {
+    display: none; /* Hide horizontal links on mobile */
+  }
+  .nav-header-content {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .nav-header-content img {
+    width: 100%;
+    height: auto;
+  }
   .beta-banner {
     padding: 30px 24px;
     margin-bottom: 60px;
