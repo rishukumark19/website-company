@@ -382,7 +382,7 @@ img[src="assets/our-story.png"] {
 /* BETA BANNER SECTION */
 .beta-banner {
   width: 100%;
-  width: 1500px;
+  width: 100px;
   height: 450px;
   background-color: #0a0a0a;
   border-radius: 20px;
